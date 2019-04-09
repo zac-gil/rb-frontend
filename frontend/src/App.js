@@ -1,25 +1,36 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Link, Route } from "react-router-dom";
 
-class App extends Component {
+import Home from "./Home";
+import TestForm from "./test/TestForm";
+
+const ViewStyle = {
+  maxWidth: "400px",
+  width: "100%",
+  margin: "0 auto",
+  padding: "10px",
+  boxSizing: "border-box"
+};
+
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <a href="/test/form/">Test Form</a>
+            </li>
+          </ul>
+        </nav>
+        <main style={ViewStyle} className="App">
+
+          <Route path="/" exact component={Home} />
+          <Route path="/test/form/" component={TestForm} />
+        </main>
       </div>
     );
   }
