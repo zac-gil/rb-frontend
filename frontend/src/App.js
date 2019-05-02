@@ -2,7 +2,8 @@ import React from 'react';
 import { Link, Route } from "react-router-dom";
 
 import Home from "./Home";
-import TestForm from "./test/TestForm";
+import FormView from "./FormView";
+//import TestForm from "./test/TestForm";
 import { genKey } from "./Functions";
 
 const ViewStyle = {
@@ -29,7 +30,8 @@ class App extends React.Component {
         </nav>
         <main style={ViewStyle} className="App">
           <Route path="/" exact component={Home} />
-          <Route path="/test/form/" component={TestForm} />
+          <Route path="/form/:id" component={FormView} />
+          {/* <Route path="/test/form/" component={TestForm} /> */}
         </main>
       </div>
     );
