@@ -3,9 +3,10 @@ import { Link, Route } from "react-router-dom";
 
 import Home from "./Home";
 import TestForm from "./test/TestForm";
+import { genKey } from "./Functions";
 
 const ViewStyle = {
-  maxWidth: "400px",
+  maxWidth: "600px",
   width: "100%",
   margin: "0 auto",
   padding: "10px",
@@ -19,15 +20,14 @@ class App extends React.Component {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" key={genKey()}>Home</Link>
             </li>
             <li>
-              <a href="/test/form/">Test Form</a>
+              <Link to="/test/form/" key={genKey()}>Test Form</Link>
             </li>
           </ul>
         </nav>
         <main style={ViewStyle} className="App">
-
           <Route path="/" exact component={Home} />
           <Route path="/test/form/" component={TestForm} />
         </main>
